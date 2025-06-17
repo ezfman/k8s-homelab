@@ -6,6 +6,8 @@ While any k8s distribution should be fine, [Talos Linux](https://www.talos.dev) 
 
 ## Quickstart
 
+Some charts depend on others.  You will need to set up ArgoCD, followed by cert-manager, and finally Traefik before you can deploy charts and securely expose services via Gateway API.
+
 TODO: ArgoCD setup
 
 ## Ingress
