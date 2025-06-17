@@ -1,0 +1,10 @@
+apiVersion: v2
+name: valkey
+description: Super simple Valkey deployment
+type: application
+version: 0.1.0
+appVersion: "8.1.2"
+dependencies:
+  - name: valkey
+    version: 3.0.14
+    repository: oci://registry-1.docker.io/bitnamicharts
