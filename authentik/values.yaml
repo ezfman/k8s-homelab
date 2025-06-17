@@ -1,0 +1,20 @@
+gateway:
+  enabled: true  # Set to true to enable the Gateway API resources
+  domain: authentik.localdomain
+  # issuer: "" # Or your preferred issuer name
+  service: authentik-server
+  path: "/"
+  port: 80
+
+authentik:
+  authentik:
+    secret_key: "changeMe"
+    error_reporting:
+        enabled: false
+    postgresql:
+        password: "changeMeToo"
+
+  postgresql:
+    enabled: true
+    auth:
+      password: "changeMeToo"

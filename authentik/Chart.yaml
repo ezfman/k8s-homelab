@@ -1,0 +1,10 @@
+apiVersion: v2
+name: authentik
+description: OIDC/SSO for k8s
+type: application
+version: 0.1.0
+appVersion: "2025.6.1"
+dependencies:
+  - name: authentik
+    version: 2025.6.1
+    repository: https://charts.goauthentik.io
