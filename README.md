@@ -82,6 +82,21 @@ spec:
 
 The default storage class for this cluster is `nfs-subdir-external-provisioner`, which allows the use of NFS for provisioning PVCs.
 
+You will need to set up an NFS routable from your Kubernetes cluster and override the appropriate values for the Helm chart.  Currently, the default values are:
+
+```yaml
+nfs-subdir-external-provisioner:
+  nfs:
+    path: /path/to/nfs
+    server: 192.168.1.123
+  storageClass:
+    defaultClass: true
+```
+
+The `nfs.path` and `nfs.server` values can easily be set using ArgoCD.
+
+To set up an NFS, there are widely available instructions (for example, from [Ubuntu](https://documentation.ubuntu.com/server/how-to/networking/install-nfs/)).
+
 ## OIDC/SSO
 
 AUthentik is used for OIDC/SSO.
