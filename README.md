@@ -99,7 +99,7 @@ To set up an NFS, there are widely available instructions (for example, from [Ub
 
 ## OIDC/SSO
 
-AUthentik is used for OIDC/SSO.
+Authentik is used for OIDC/SSO.
 
 ## Services
 
