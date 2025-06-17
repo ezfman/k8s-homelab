@@ -1,0 +1,8 @@
+# Parent chart configuration
+gateway:
+  enabled: true
+  domain: llm.localdomain
+  # issuer: "" # Or your preferred issuer name
+  service: open-webui
+  path: "/"
+  port: 80
