@@ -3,7 +3,7 @@ name: flink
 description: Super simple Flink deployment
 type: application
 version: 0.1.0
-appVersion: "1.16.0"
+appVersion: "2.0.0"
 dependencies:
   - name: flink
     version: 2.0.4
