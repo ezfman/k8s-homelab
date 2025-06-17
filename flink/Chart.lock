@@ -1,0 +1,6 @@
+dependencies:
+- name: flink
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 2.0.4
+digest: sha256:50755d8c550edc2b267423104a60d7b4b32ec5a580df44fe4fe4a5969dfa2207
+generated: "2025-06-16T22:14:47.538343-04:00"

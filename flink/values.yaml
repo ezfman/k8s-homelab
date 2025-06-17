@@ -1,0 +1,12 @@
+# Parent chart configuration
+gateway:
+  enabled: true  # Set to true to enable the Gateway API resources
+  domain: flink.localdomain
+  # issuer: "" # Or your preferred issuer name
+  service: flink-jobmanager
+  path: "/"
+  port: 8081 # Default port for the Flink JobManager UI
+
+# Override Bitnami Flink subchart values (optional)
+# flink:
+  # See artifactory for defaults: https://artifacthub.io/packages/helm/bitnami/flink?modal=values
