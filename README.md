@@ -22,6 +22,7 @@ Key dependencies for exposing services via Gateway API are:
 Here is the template for Gateway API:
 
 ```
+{{- if .Values.gateway.enabled -}} # Check if gateway is enabled
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -74,6 +75,7 @@ spec:
       name: {{ coalesce .Values.gateway.service .Chart.Name }} # Might need some work
       namespace: {{ .Release.Namespace }}
       port: {{ coalesce .Values.gateway.port 80 }}
+{{- end -}} # End of the if condition
 ```
 
 ## Storage
