@@ -1,0 +1,6 @@
+nfs-subdir-external-provisioner:
+  nfs:
+    path: /path/to/nfs
+    server: 192.168.1.123
+  storageClass:
+    defaultClass: true
