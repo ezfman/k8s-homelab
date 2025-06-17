@@ -1,0 +1,5 @@
+
+# Override cert-manager subchart values (optional)
+cert-manager:
+  crds:
+    enabled: true
