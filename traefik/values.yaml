@@ -1,0 +1,18 @@
+traefik:
+  providers:
+    kubernetesIngress:
+      enabled: false
+    kubernetesGateway:
+      enabled: true
+  # gateway:
+  #   listeners:
+  #     web:
+  #       port: 8000
+  #       protocol: HTTP
+  #       namespacePolicy: All
+  #     websecure:
+  #       port: 8443
+  #       protocol: HTTPS
+  #       namespacePolicy: All
+  #       certificateRefs:
+  #         - name: traefik-tls-certificate
