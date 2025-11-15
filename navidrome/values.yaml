@@ -104,6 +104,21 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+env:
+  # --- CRITICAL PATHS ---
+  # ND_MUSICFOLDER MUST match the volumeMounts.mountPath for the music PVC
+  ND_MUSICFOLDER: "/data/music" 
+  # ND_DATAFOLDER MUST match the volumeMounts.mountPath for the data/db PVC
+  # ND_DATAFOLDER: "/data"
+
+  # --- OPTIONAL SETTINGS ---
+  # Timezone: Crucial for accurate time stamps (use an IANA value like America/New_York)
+  TZ: "America/New_York"
+  # Scan Schedule: How often Navidrome rescans the music folder (e.g., once an hour)
+  ND_SCANSCHEDULE: "1h"
+  # Log Level: Set to 'info' for general use, 'debug' for troubleshooting
+  ND_LOGLEVEL: "info"
+
 persistence:
   enabled: true
   size: 100Gi # Adjust to your needs
