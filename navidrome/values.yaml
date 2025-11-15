@@ -69,10 +69,10 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-  tls: # This entire section is for TLS
+  tls:
     - hosts:
         - music.k8s.ferd.men
-      secretName: gitea-tls-cert # Traefik will store the cert hereasw
+      secretName: gitea-tls-cert
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -104,17 +104,27 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+persistence:
+  enabled: true
+  size: 100Gi # Adjust to your needs
+  # storageClass: null # Use the default StorageClass, which is NFS
+  accessModes:
+    - ReadWriteOnce # Navidrome only needs one pod to access it
+
 # Additional volumes on the output Deployment definition.
-volumes: []
+volumes:
+  - name: music-volume
+    persistentVolumeClaim:
+      claimName: navidrome-music
 # - name: foo
 #   secret:
 #     secretName: mysecret
 #     optional: false
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
+volumeMounts:
+  - name: music-volume
+    mountPath: /data/music # This should match your Navidrome config (e.g., ND_MUSICFOLDER)
 #   readOnly: true
 
 nodeSelector: {}
