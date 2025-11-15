@@ -59,19 +59,20 @@ service:
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  className: "traefik"
+  annotations:
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: "cloudflare"
   hosts:
-    - host: chart-example.local
+    - host: music.k8s.ferd.men
       paths:
         - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+          pathType: Prefix
+  tls: # This entire section is for TLS
+    - hosts:
+        - music.k8s.ferd.men
+      secretName: gitea-tls-cert # Traefik will store the cert hereasw
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
